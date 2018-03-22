@@ -13,7 +13,6 @@ namespace cam_aforge1
         //DO NOT CHANGE UNLESS YOU KNOW WHAT YOU'RE DOING
         GUI gui;
         public Graphics g;
-        //public Color pixelColor;
 
         //This is where you can declare variables that you will be changing as the Run()
         //method executes.
@@ -21,12 +20,12 @@ namespace cam_aforge1
         //Step 0: To try out the sample code, uncomment all the variables from line 21-27
         int circleX1 = 50;
         int circleY1 = 50;
-        public int squareX1 = 0;
-        public int squareY1 = 0;
-        int squareSize = 100;
+        public int squareX1 = 200;
+        public int squareY1 = 100;
         int speed = 5;
-        bool cirdir = true;
-        bool sqrdir = true;
+        bool cirDir = true;
+        bool sqrDir = true;
+        int scansizeincrement = 2;
 
         int counter = 0;
 
@@ -39,10 +38,10 @@ namespace cam_aforge1
         }
         
         //This function runs every frame
-        public void Run()
+        public void Run(int r, int G, int b)
         {
             //Step 1: Let's draw a basic Square. Uncomment Lines 43-45 to draw a blue square. Then, press start.
-            Square sqr = new Square(Color.Blue, 4, squareX1, squareY1, squareSize);
+            Square sqr = new Square(Color.Blue, 4, squareX1, squareY1, 100);
             //sqr.Draw(g);
 
             //Step 2: Now let's draw a filled circle. Uncomment Lines 47-50 to draw a purple
@@ -57,10 +56,10 @@ namespace cam_aforge1
 
             //if (cir.x1 + 25 >= sqr.size || cir.x1 - 25 <= sqr.x1)
             //{
-            //    cirdir = !cirdir;
+            //    cirDir = !cirDir;
             //}
 
-            //if (cirdir)
+            //if (cirDir)
             //{
             //    circleX1 = circleX1 + speed;
             //    cir.x1 = circleX1;
@@ -81,10 +80,10 @@ namespace cam_aforge1
 
             //if (sqr.y1 >= 300 || sqr.y1 < 0)
             //{
-            //    sqrdir = !sqrdir;
+            //    sqrDir = !sqrDir;
             //}
 
-            //if (sqrdir)
+            //if (sqrDir)
             //{
             //    squareY1 = squareY1 + speed;
             //    sqr.y1 = squareY1;
@@ -96,15 +95,17 @@ namespace cam_aforge1
             //    sqr.y1 = squareY1;
             //}
 
+
+
             //sqr.Draw(g);
 
 
             //Step 5: Now let's try syncing the movement of the 2 primitives we created. Uncomment
             //lines 99-102 to group the 2 primitives into a single Shape. Make sure to comment out
             //the cir.Draw(); and the sqr.Draw(); in lines 73 and 97, respectively.
-            
-            //Shape shape = new Shape();
-            //shape.Add(sqr);
+
+            Shape shape = new Shape();
+            shape.Add(sqr);
             //shape.Add(cir);
             //shape.Draw(g);
 
@@ -120,10 +121,131 @@ namespace cam_aforge1
             //It's time to add user interactivity. Go to the GUI.cs form designer by double clicking beginner>GUI.cs
             //on the Solution Explorer to the right of your Visual Studio window. On the Form Designer, double click the
             //Tick button to proceed to step 7
+            stayontrack();
+            sqr.Draw(g);
 
-            //g.Dispose();
-            //Bitmap img = (Bitmap)eventArgs.Frame.Clone();
+            // DAG YO
 
+
+            void stayontrack()
+            {
+                if (r > 50 && G > 50 && b > 50)
+                {
+                    squareY1 = squareY1 + 1;
+                    squareX1 = squareX1 - 1;
+                    sqr.x1 = squareX1;
+                    sqr.y1 = squareY1;
+                    sqr.Draw(g);
+                }
+                else
+                {
+                    scansizeincrement = 2;
+                    return;
+                }
+
+                for (int i = 0; i < scansizeincrement; i++)
+                {
+                    if (r > 50 && G > 50 && b > 50)
+                    {
+                        squareY1 = squareY1 - 1;
+                        squareX1 = squareX1;
+                        sqr.x1 = squareX1;
+                        sqr.y1 = squareY1;
+                        sqr.Draw(g);
+                    }
+                    else
+                    {
+                        scansizeincrement = 2;
+                        return;
+                    }
+                }
+                for (int i = 0; i < scansizeincrement; i++)
+                {
+                    if (r > 50 && G > 50 && b > 50)
+                    {
+                        squareY1 = squareY1;
+                        squareX1 = squareX1 + 1;
+                        sqr.x1 = squareX1;
+                        sqr.y1 = squareY1;
+                        sqr.Draw(g);
+                    }
+                    else
+                    {
+                        scansizeincrement = 2;
+                        return;
+                    }
+                }
+                for (int i = 0; i < scansizeincrement; i++)
+                {
+                    if (r > 50 && G > 50 && b > 50)
+                    {
+                        squareY1 = squareY1 + 1;
+                        squareX1 = squareX1;
+                        sqr.x1 = squareX1;
+                        sqr.y1 = squareY1;
+                        sqr.Draw(g);
+                    }
+                    else
+                    {
+                        scansizeincrement = 2;
+                        return;
+                    }
+                }
+                for (int i = 0; i < scansizeincrement; i++)
+                {
+                    if (r > 50 && G > 50 && b > 50)
+                    {
+                        squareY1 = squareY1;
+                        squareX1 = squareX1 - 1;
+                        sqr.x1 = squareX1;
+                        sqr.y1 = squareY1;
+                        sqr.Draw(g);
+                    }
+                    else
+                    {
+                        scansizeincrement = 2;
+                        return;
+                    }
+                }
+                scansizeincrement = scansizeincrement + 2;
+            }
+
+
+
+
+        }
+        public int change_panel_color(Bitmap img, int sel)
+        {
+            int X1 = squareX1;
+            int Y1 = squareY1;
+            //int square = squareSize;
+
+            //int count = 0;
+            int r = 0;
+            int G = 0;
+            int b = 0;
+
+            Color pixelColor = img.GetPixel(X1+50, Y1+50);
+            r += pixelColor.R;
+            G += pixelColor.G;
+            b += pixelColor.B;
+            
+            if (sel == 1)
+            {
+                return r;
+            }
+            else if (sel == 2)
+            {
+                return G;
+            }
+            else if (sel == 3)
+            {
+                return b;
+            }
+            else
+            {
+                return 0;
+            }
 
         }
 
@@ -133,35 +255,6 @@ namespace cam_aforge1
             //Step 8 on GUI.cs will enable this code
             counter++;
         }
-
-        public Color change_panel_color(Bitmap img)
-        {
-            int X1 = squareX1;
-            int Y1 = squareY1;
-            int square = squareSize;
-
-            int count = 0;
-            int r = 0;
-            int g = 0;
-            int b = 0;
-
-            for (Y1 = 0; Y1 < square; Y1++)
-            {
-                for (X1 = 0; X1 < square; X1++)
-                {
-                    Color pixelColor = img.GetPixel(X1, Y1);
-                    r += pixelColor.R;
-                    g += pixelColor.G;
-                    b += pixelColor.B;
-                    count++;
-                }
-            }
-            r /= count;
-            g /= count;
-            b /= count;
-            //Color pixelColor = img.GetPixel(X1, Y1);
-            return Color.FromArgb(r, g, b);
-
-        }
     }
-} 
+
+}

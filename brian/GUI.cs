@@ -99,11 +99,17 @@ namespace cam_aforge1
         private void video_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
             Bitmap img = (Bitmap)eventArgs.Frame.Clone();
+          
 
-            Color pixelColor = myCanvas.change_panel_color(img);
-            panel1.BackColor = pixelColor;
+            int r = myCanvas.change_panel_color(img, 1);
+            int G = myCanvas.change_panel_color(img, 2);
+            int b = myCanvas.change_panel_color(img, 3);
+
+
+            panel1.BackColor = Color.FromArgb(r,G,b);
+
             myCanvas.g = Graphics.FromImage(img);
-            myCanvas.Run();
+            myCanvas.Run(r,G,b);
             
             viewFinder.Image = img;
             myCanvas.g.Dispose();
@@ -153,27 +159,5 @@ namespace cam_aforge1
             //Note that the syntax for calling methods in the GUIElements class is always in the form of
             //`myCanvas.NameOfMethod();`.
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-            //e.Graphics.FillRectangle(pixelBrush, 0, 0, 100, 100);
-        }
-
-        private void countLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void countDisp_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        //private void pictureBox1_Click(object sender, EventArgs e)
-        //{
-        //    SolidBrush pixelBrush = new SolidBrush(pixelColor);
-        //    //e.Graphics.FillRectangle(pixelBrush, 0, 0, 100, 100);
-        //}
     }
 }
