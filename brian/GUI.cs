@@ -20,6 +20,12 @@ namespace cam_aforge1
         GUIElements myCanvas;
 
         int tickCount = 0;
+        public int x_start_coord;
+        public int y_start_coord;
+        public int begin_r;
+        public int begin_G;
+        public int begin_b;
+        public int start_pixel_color_flag = 0;
 
         //Constructs the gui
         public GUI()
@@ -27,8 +33,21 @@ namespace cam_aforge1
             myCanvas = new GUIElements(this);
             InitializeComponent();
             //Add custom events here, ie
-            //viewFinder.MouseDown += new MouseEventHandler(viewFinder_MouseDown);
+            viewFinder.MouseDown += new MouseEventHandler(viewFinder_MouseDown);
         }
+
+        public void viewFinder_MouseDown(object sender, MouseEventArgs e)
+        {
+            x_start_coord = e.X;
+            y_start_coord = e.Y;
+            start_pixel_color_flag = 1;
+        }
+
+        //public int First_tracked_color(int coord_x, int coord_y)
+        //{
+
+        //    return 1;
+        //}
 
         //Generally don't have to change this
         private void getCamList()
@@ -99,11 +118,24 @@ namespace cam_aforge1
         private void video_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
             Bitmap img = (Bitmap)eventArgs.Frame.Clone();
+          
+            int r = myCanvas.change_panel_color(img, 1);
+            int G = myCanvas.change_panel_color(img, 2);
+            int b = myCanvas.change_panel_color(img, 3);
 
-            Color pixelColor = myCanvas.change_panel_color(img);
-            panel1.BackColor = pixelColor;
+            if (start_pixel_color_flag == 1)
+            {
+                begin_r = get_first_color(img, 1);
+                begin_G = get_first_color(img, 2);
+                begin_b = get_first_color(img, 3);
+                //Console.WriteLine(begin_r + " " + begin_G + " " + begin_b);
+                start_pixel_color_flag = 0;
+                panel1.BackColor = Color.FromArgb(begin_r, begin_G, begin_b);
+            }
+
+            //Console.WriteLine(start_pixel_color_flag);
             myCanvas.g = Graphics.FromImage(img);
-            myCanvas.Run();
+            myCanvas.Run(r,G,b,img,begin_r,begin_G,begin_b);
             
             viewFinder.Image = img;
             myCanvas.g.Dispose();
@@ -154,26 +186,31 @@ namespace cam_aforge1
             //`myCanvas.NameOfMethod();`.
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        public int get_first_color (Bitmap img, int start_sel)
         {
+            Color pixelColor = img.GetPixel(x_start_coord+5, y_start_coord+5);
+            int starting_begin_r = pixelColor.R;
+            int starting_begin_G = pixelColor.G;
+            int starting_begin_b = pixelColor.B;
 
-            //e.Graphics.FillRectangle(pixelBrush, 0, 0, 100, 100);
+            if (start_sel == 1)
+            {
+                return starting_begin_r;
+            }
+            else if (start_sel == 2)
+            {
+                return starting_begin_G;
+            }
+            else if (start_sel == 3)
+            {
+                return starting_begin_b;
+            }
+            else
+            {
+                return 0;
+            }
+
         }
 
-        private void countLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void countDisp_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        //private void pictureBox1_Click(object sender, EventArgs e)
-        //{
-        //    SolidBrush pixelBrush = new SolidBrush(pixelColor);
-        //    //e.Graphics.FillRectangle(pixelBrush, 0, 0, 100, 100);
-        //}
     }
 }
