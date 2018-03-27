@@ -23,9 +23,13 @@ namespace cam_aforge1
         public int x_start_coord;
         public int y_start_coord;
         public int begin_r;
+        public int begin_r_2;
         public int begin_G;
+        public int begin_G_2;
         public int begin_b;
+        public int begin_b_2;
         public int start_pixel_color_flag = 0;
+        public int bluesquareflag = 1;
 
         //Constructs the gui
         public GUI()
@@ -125,18 +129,28 @@ namespace cam_aforge1
 
             if (start_pixel_color_flag == 1)
             {
-                begin_r = get_first_color(img, 1);
-                begin_G = get_first_color(img, 2);
-                begin_b = get_first_color(img, 3);
-                //Console.WriteLine(begin_r + " " + begin_G + " " + begin_b);
+                if (bluesquareflag == 1)
+                {
+                    begin_r = get_first_color(img, 1);
+                    begin_G = get_first_color(img, 2);
+                    begin_b = get_first_color(img, 3);
+                }
+                else
+                {
+                    begin_r_2 = get_first_color(img, 1);
+                    begin_G_2 = get_first_color(img, 2);
+                    begin_b_2 = get_first_color(img, 3);
+                }
+                //Console.WriteLine(begin_r_2 + " " + begin_G_2 + " " + begin_b_2);
                 start_pixel_color_flag = 0;
                 panel1.BackColor = Color.FromArgb(begin_r, begin_G, begin_b);
+                panel2.BackColor = Color.FromArgb(begin_r_2, begin_G_2, begin_b_2);
             }
 
             //Console.WriteLine(start_pixel_color_flag);
             myCanvas.g = Graphics.FromImage(img);
-            myCanvas.Run(r,G,b,img,begin_r,begin_G,begin_b);
-            
+            myCanvas.Run(r, G, b, img, begin_r, begin_r_2, begin_G, begin_G_2, begin_b, begin_b_2);
+
             viewFinder.Image = img;
             myCanvas.g.Dispose();
         }
@@ -212,5 +226,19 @@ namespace cam_aforge1
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            bluesquareflag = 1;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            bluesquareflag = 0;
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

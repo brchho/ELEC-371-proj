@@ -20,12 +20,15 @@ namespace cam_aforge1
         //Step 0: To try out the sample code, uncomment all the variables from line 21-27
         int circleX1 = 50;
         int circleY1 = 50;
-        public int squareX1 ;
+        public int squareX1;
         public int squareY1;
+        public int squareX1_2 = 100;
+        public int squareY1_2 = 100;
         int speed = 5;
         bool cirDir = true;
         bool sqrDir = true;
         long scansizeincrement = 2;
+        long scansizeincrement_2 = 2;
         int range = 15;
 
         int counter = 0;
@@ -39,104 +42,22 @@ namespace cam_aforge1
         }
         
         //This function runs every frame
-        public void Run(int r, int G, int b, Bitmap img, int begin_r, int begin_G, int begin_b)
+        public void Run(int r, int G, int b, Bitmap img, int begin_r, int begin_r_2, int begin_G, int begin_G_2, int begin_b, int begin_b_2)
         {
-            //Step 1: Let's draw a basic Square. Uncomment Lines 43-45 to draw a blue square. Then, press start.
-            //if (start_pixel_color_flag == 0 && start_pixel_flag == 1)
-            //{
-            //    squareX1 = start_x_coord;
-            //    squareY1 = start_y_coord;
-            //    start_pixel_flag = 0;
-
-            //}
-
-            //Console.WriteLine(begin_r + " " + begin_G + " " + begin_b);
             Square sqr = new Square(Color.Blue, 4, squareX1, squareY1, 100);
-            //sqr.Draw(g);
+            Square sqr_2 = new Square(Color.Red, 4, squareX1_2, squareY1_2, 100);
             
-
-            //Step 2: Now let's draw a filled circle. Uncomment Lines 47-50 to draw a purple
-            //circle in the centre of the square we drew in step 1
-            //Circle cir = new Circle(Color.Purple, 4, circleX1, circleY1, 50);
-            //cir.isFill = true;
-            //cir.Draw(g);
-
-            //Step 3: It's time to animate! The following chunk of code
-            //moves the circle side-to-side within the square. Uncomment lines 55-74 and comment out
-            //the cir.Draw(g) in line 45.
-
-            //if (cir.x1 + 25 >= sqr.size || cir.x1 - 25 <= sqr.x1)
-            //{
-            //    cirDir = !cirDir;
-            //}
-
-            //if (cirDir)
-            //{
-            //    circleX1 = circleX1 + speed;
-            //    cir.x1 = circleX1;
-            //}
-
-            //else
-            //{
-            //    circleX1 = circleX1 - speed;
-            //    cir.x1 = circleX1;
-            //}
-
-            //cir.Draw(g);
-
-
-            //Step 4: Let's animate the square this time. The following chunk of code
-            //moves the square up and down the screen. Uncomment lines 79-98 and comment out
-            //the sqr.Draw(g) in line 44.
-
-            //if (sqr.y1 >= 300 || sqr.y1 < 0)
-            //{
-            //    sqrDir = !sqrDir;
-            //}
-
-            //if (sqrDir)
-            //{
-            //    squareY1 = squareY1 + speed;
-            //    sqr.y1 = squareY1;
-            //}
-
-            //else
-            //{
-            //    squareY1 = squareY1 - speed;
-            //    sqr.y1 = squareY1;
-            //}
-
-
-
-            //sqr.Draw(g);
-
-
-            //Step 5: Now let's try syncing the movement of the 2 primitives we created. Uncomment
-            //lines 99-102 to group the 2 primitives into a single Shape. Make sure to comment out
-            //the cir.Draw(); and the sqr.Draw(); in lines 73 and 97, respectively.
-
-            Shape shape = new Shape();
-            shape.Add(sqr);
-            //shape.Add(cir);
-            //shape.Draw(g);
-
-
-            //Note that the FIRST primitive added with the shape.Add method is ALWAYS the root shape.
-            //This means that the succeeding primitives are always positioned with respect to the x1 and y1
-            //of the first primitive added.
 
             //Step 6: Now let's display text on the screen. Uncomment lines 115-116.
             Text count = new Text("Count: " + counter.ToString(), Color.Red, 300, 0, 35);
             count.Draw(g);
 
-            //It's time to add user interactivity. Go to the GUI.cs form designer by double clicking beginner>GUI.cs
-            //on the Solution Explorer to the right of your Visual Studio window. On the Form Designer, double click the
-            //Tick button to proceed to step 7
 
 
             // DAG YO
 
             stayontrack();
+            stayontrack_2();
 
             void stayontrack()
             {
@@ -238,9 +159,107 @@ namespace cam_aforge1
                 scansizeincrement = scansizeincrement + 2;
             }
 
-            Console.WriteLine(change_panel_color(img, 1) + " " + change_panel_color(img, 2) + " " + change_panel_color(img, 3)+ " " + begin_r + " " + begin_G + " " + begin_b);
+            void stayontrack_2()
+            {
+                if ((squareX1_2) > 5 && (squareY1_2 + 50) <= 410)
+                {
+                    if ((change_panel_color_2(img, 1) > (begin_r_2 + range) || change_panel_color_2(img, 1) < (begin_r_2 - range)) || (change_panel_color_2(img, 2) > (begin_G_2 + range) || change_panel_color_2(img, 2) < (begin_G_2 - range)) || (change_panel_color_2(img, 3) > (begin_b_2 + range) || change_panel_color_2(img, 3) < (begin_b_2 - range)))
+                    {
+                        squareY1_2 = squareY1_2 + 2;
+                        squareX1_2 = squareX1_2 - 2;
+                        sqr_2.x1 = squareX1_2;
+                        sqr_2.y1 = squareY1_2;
+                        //sqr_2.Draw(g);
+                    }
+                    else
+                    {
+                        scansizeincrement_2 = 2;
+                        sqr_2.Draw(g);
+                        return;
+                    }
+                }
 
+                for (long i = 0; i < scansizeincrement_2; i++)
+                {
+                    if ((squareY1_2) > 5)
+                    {
+                        if ((change_panel_color_2(img, 1) > (begin_r_2 + range) || change_panel_color_2(img, 1) < (begin_r_2 - range)) || (change_panel_color_2(img, 2) > (begin_G_2 + range) || change_panel_color_2(img, 2) < (begin_G_2 - range)) || (change_panel_color_2(img, 3) > (begin_b_2 + range) || change_panel_color_2(img, 3) < (begin_b_2 - range)))
+                        {
+                            squareY1_2 = squareY1_2 - 3;
+                            squareX1_2 = squareX1_2;
+                            sqr_2.x1 = squareX1_2;
+                            sqr_2.y1 = squareY1_2;
+                            //sqr_2.Draw(g);
 
+                        }
+                        else
+                        {
+                            scansizeincrement_2 = 2;
+                            return;
+                        }
+                    }
+                }
+                for (long i = 0; i < scansizeincrement_2; i++)
+                {
+                    if ((squareX1_2 + 50) <= 560)
+                    {
+                        if ((change_panel_color_2(img, 1) > (begin_r_2 + range) || change_panel_color_2(img, 1) < (begin_r_2 - range)) || (change_panel_color_2(img, 2) > (begin_G_2 + range) || change_panel_color_2(img, 2) < (begin_G_2 - range)) || (change_panel_color_2(img, 3) > (begin_b_2 + range) || change_panel_color_2(img, 3) < (begin_b_2 - range)))
+                        {
+                            squareY1_2 = squareY1_2;
+                            squareX1_2 = squareX1_2 + 3;
+                            sqr_2.x1 = squareX1_2;
+                            sqr_2.y1 = squareY1_2;
+                            //sqr_2.Draw(g);
+                        }
+                        else
+                        {
+                            scansizeincrement_2 = 2;
+                            return;
+                        }
+                    }
+                }
+                for (long i = 0; i < scansizeincrement_2; i++)
+                {
+                    if ((squareY1_2 + 50) <= 410)
+                    {
+                        if ((change_panel_color_2(img, 1) > (begin_r_2 + range) || change_panel_color_2(img, 1) < (begin_r_2 - range)) || (change_panel_color_2(img, 2) > (begin_G_2 + range) || change_panel_color_2(img, 2) < (begin_G_2 - range)) || (change_panel_color_2(img, 3) > (begin_b_2 + range) || change_panel_color_2(img, 3) < (begin_b_2 - range)))
+                        {
+                            squareY1_2 = squareY1_2 + 3;
+                            squareX1_2 = squareX1_2;
+                            sqr_2.x1 = squareX1_2;
+                            sqr_2.y1 = squareY1_2;
+                            //sqr_2.Draw(g);
+                        }
+                        else
+                        {
+                            scansizeincrement_2 = 2;
+                            return;
+                        }
+                    }
+                }
+                for (long i = 0; i < scansizeincrement_2; i++)
+                {
+                    if ((squareX1_2) > 5)
+                    {
+                        if ((change_panel_color_2(img, 1) > (begin_r_2 + range) || change_panel_color_2(img, 1) < (begin_r_2 - range)) || (change_panel_color_2(img, 2) > (begin_G_2 + range) || change_panel_color_2(img, 2) < (begin_G_2 - range)) || (change_panel_color_2(img, 3) > (begin_b_2 + range) || change_panel_color_2(img, 3) < (begin_b_2 - range)))
+                        {
+                            squareY1_2 = squareY1_2;
+                            squareX1_2 = squareX1_2 - 3;
+                            sqr_2.x1 = squareX1_2;
+                            sqr_2.y1 = squareY1_2;
+                            //sqr_2.Draw(g);
+                        }
+                        else
+                        {
+                            scansizeincrement_2 = 2;
+                            return;
+                        }
+                    }
+                }
+                scansizeincrement_2 = scansizeincrement_2 + 2;
+            }
+
+            //Console.WriteLine(change_panel_color_2(img, 1) + " " + change_panel_color_2(img, 2) + " " + change_panel_color_2(img, 3)+ " " + begin_r + " " + begin_G + " " + begin_b + " " + begin_r_2 + " " + begin_G_2 + " " + begin_b_2);
         }
         public int change_panel_color(Bitmap img, int sel)
         {
@@ -277,12 +296,49 @@ namespace cam_aforge1
 
         }
 
+        public int change_panel_color_2(Bitmap img, int sel)
+        {
+            int X1_2 = squareX1_2;
+            int Y1_2 = squareY1_2;
+            //int square = squareSize;
+
+            //int count = 0;
+            int r_2 = 0;
+            int G_2 = 0;
+            int b_2 = 0;
+
+            Color pixelColor = img.GetPixel(X1_2 + 50, Y1_2 + 50);
+            r_2 += pixelColor.R;
+            G_2 += pixelColor.G;
+            b_2 += pixelColor.B;
+
+            if (sel == 1)
+            {
+                return r_2;
+            }
+            else if (sel == 2)
+            {
+                return G_2;
+            }
+            else if (sel == 3)
+            {
+                return b_2;
+            }
+            else
+            {
+                return 0;
+            }
+
+        }
+
         //Below is Sample Code on how to implement a button
         public void ButtonWasClicked()
         {
             //Step 8 on GUI.cs will enable this code
             counter++;
         }
+
+        
     }
 
 }
