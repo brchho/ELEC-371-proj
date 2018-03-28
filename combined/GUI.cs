@@ -196,9 +196,11 @@ namespace cam_aforge1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            tickCount++;
-            countDisp.Text = tickCount.ToString();
-            myCanvas.ButtonWasClicked();
+            //tickCount++;
+            //countDisp.Text = tickCount.ToString();
+            //myCanvas.ButtonWasClicked();
+            myCanvas.ResetSquareLocations();
+            myCanvas.CounterReEnable();
         }
 
         public int get_first_color (Bitmap img, int start_sel)
@@ -266,6 +268,7 @@ namespace cam_aforge1
             reset_time_flag = 1;
             stopwatch.Reset();
             myCanvas.ResetSquareLocations();
+
         }
 
         private void secDisp_Click(object sender, EventArgs e)

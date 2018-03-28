@@ -260,7 +260,7 @@ namespace cam_aforge1
             //Console.WriteLine(change_panel_color(img, 1) + " " + change_panel_color(img, 2) + " " + change_panel_color(img, 3)+ " " + begin_r + " " + begin_G + " " + begin_b);
              
 
-            if ((squareX1 < (squareX1_2 + targetRange) && squareX1 > (squareX1_2 - targetRange)) && (squareY1 < (squareY1_2 + targetRange) && squareY1 > (squareY1_2 - targetRange)) && scansizeincrement_2 < 10 && scansizeincrement < 10)
+            if ((squareX1 < (squareX1_2 + targetRange) && squareX1 > (squareX1_2 - targetRange)) && (squareY1 < (squareY1_2 + targetRange) && squareY1 > (squareY1_2 - targetRange)) && scansizeincrement_2 < 10 && scansizeincrement < 10 && counterflag == true)
             {
                 counter++;
                 squareX1 = 100;
@@ -269,6 +269,7 @@ namespace cam_aforge1
                 squareX1_2 = 300;
                 squareY1_2 = 100;
                 scansizeincrement_2 = 2;
+                counterflag = false;
             }
         }
         public int change_panel_color(Bitmap img, int sel)
@@ -351,6 +352,10 @@ namespace cam_aforge1
             scansizeincrement_2 = 2;
         }
 
+        public void CounterReEnable()
+        {
+            counterflag = true;
+        }
         //Below is Sample Code on how to implement a button
         public void ButtonWasClicked()
         {

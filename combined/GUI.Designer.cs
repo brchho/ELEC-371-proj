@@ -62,10 +62,10 @@ namespace cam_aforge1
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.viewFinder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.viewFinder.Location = new System.Drawing.Point(261, 11);
-            this.viewFinder.Margin = new System.Windows.Forms.Padding(4);
+            this.viewFinder.Location = new System.Drawing.Point(294, 14);
+            this.viewFinder.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.viewFinder.Name = "viewFinder";
-            this.viewFinder.Size = new System.Drawing.Size(922, 585);
+            this.viewFinder.Size = new System.Drawing.Size(1037, 731);
             this.viewFinder.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.viewFinder.TabIndex = 0;
             this.viewFinder.TabStop = false;
@@ -73,28 +73,28 @@ namespace cam_aforge1
             // vidSrc
             // 
             this.vidSrc.FormattingEnabled = true;
-            this.vidSrc.Location = new System.Drawing.Point(16, 32);
-            this.vidSrc.Margin = new System.Windows.Forms.Padding(4);
+            this.vidSrc.Location = new System.Drawing.Point(18, 40);
+            this.vidSrc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.vidSrc.Name = "vidSrc";
-            this.vidSrc.Size = new System.Drawing.Size(208, 24);
+            this.vidSrc.Size = new System.Drawing.Size(234, 28);
             this.vidSrc.TabIndex = 1;
             // 
             // vidSrcLabel
             // 
             this.vidSrcLabel.AutoSize = true;
-            this.vidSrcLabel.Location = new System.Drawing.Point(12, 11);
+            this.vidSrcLabel.Location = new System.Drawing.Point(14, 14);
             this.vidSrcLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.vidSrcLabel.Name = "vidSrcLabel";
-            this.vidSrcLabel.Size = new System.Drawing.Size(132, 17);
+            this.vidSrcLabel.Size = new System.Drawing.Size(147, 20);
             this.vidSrcLabel.TabIndex = 2;
             this.vidSrcLabel.Text = "Select video source";
             // 
             // rfsh
             // 
-            this.rfsh.Location = new System.Drawing.Point(18, 76);
-            this.rfsh.Margin = new System.Windows.Forms.Padding(4);
+            this.rfsh.Location = new System.Drawing.Point(20, 95);
+            this.rfsh.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rfsh.Name = "rfsh";
-            this.rfsh.Size = new System.Drawing.Size(91, 38);
+            this.rfsh.Size = new System.Drawing.Size(102, 48);
             this.rfsh.TabIndex = 3;
             this.rfsh.Text = "&Refresh";
             this.rfsh.UseVisualStyleBackColor = true;
@@ -102,10 +102,10 @@ namespace cam_aforge1
             // 
             // start
             // 
-            this.start.Location = new System.Drawing.Point(135, 76);
-            this.start.Margin = new System.Windows.Forms.Padding(4);
+            this.start.Location = new System.Drawing.Point(152, 95);
+            this.start.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.start.Name = "start";
-            this.start.Size = new System.Drawing.Size(91, 38);
+            this.start.Size = new System.Drawing.Size(102, 48);
             this.start.TabIndex = 4;
             this.start.Text = "&Start";
             this.start.UseVisualStyleBackColor = true;
@@ -114,21 +114,21 @@ namespace cam_aforge1
             // fps
             // 
             this.fps.Controls.Add(this.label2);
-            this.fps.Location = new System.Drawing.Point(16, 178);
-            this.fps.Margin = new System.Windows.Forms.Padding(4);
+            this.fps.Location = new System.Drawing.Point(18, 222);
+            this.fps.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.fps.Name = "fps";
-            this.fps.Padding = new System.Windows.Forms.Padding(4);
-            this.fps.Size = new System.Drawing.Size(206, 34);
+            this.fps.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.fps.Size = new System.Drawing.Size(232, 42);
             this.fps.TabIndex = 6;
             this.fps.TabStop = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 14);
+            this.label2.Location = new System.Drawing.Point(4, 18);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 17);
+            this.label2.Size = new System.Drawing.Size(108, 20);
             this.label2.TabIndex = 0;
             this.label2.Text = "Device ready..";
             // 
@@ -139,10 +139,10 @@ namespace cam_aforge1
             // 
             // ctrl
             // 
-            this.ctrl.Location = new System.Drawing.Point(16, 122);
-            this.ctrl.Margin = new System.Windows.Forms.Padding(4);
+            this.ctrl.Location = new System.Drawing.Point(18, 152);
+            this.ctrl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ctrl.Name = "ctrl";
-            this.ctrl.Size = new System.Drawing.Size(91, 38);
+            this.ctrl.Size = new System.Drawing.Size(102, 48);
             this.ctrl.TabIndex = 7;
             this.ctrl.Text = "&Control";
             this.ctrl.UseVisualStyleBackColor = true;
@@ -150,12 +150,12 @@ namespace cam_aforge1
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(12, 233);
+            this.button3.Location = new System.Drawing.Point(14, 291);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(98, 43);
+            this.button3.Size = new System.Drawing.Size(110, 54);
             this.button3.TabIndex = 10;
-            this.button3.Text = "Tick";
+            this.button3.Text = "Restart";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -163,10 +163,10 @@ namespace cam_aforge1
             // 
             this.countLabel.AutoSize = true;
             this.countLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.countLabel.Location = new System.Drawing.Point(9, 288);
+            this.countLabel.Location = new System.Drawing.Point(10, 360);
             this.countLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.countLabel.Name = "countLabel";
-            this.countLabel.Size = new System.Drawing.Size(95, 31);
+            this.countLabel.Size = new System.Drawing.Size(112, 37);
             this.countLabel.TabIndex = 11;
             this.countLabel.Text = "Count:";
             // 
@@ -174,19 +174,19 @@ namespace cam_aforge1
             // 
             this.countDisp.AutoSize = true;
             this.countDisp.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.countDisp.Location = new System.Drawing.Point(112, 288);
+            this.countDisp.Location = new System.Drawing.Point(126, 360);
             this.countDisp.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.countDisp.Name = "countDisp";
-            this.countDisp.Size = new System.Drawing.Size(29, 31);
+            this.countDisp.Size = new System.Drawing.Size(35, 37);
             this.countDisp.TabIndex = 12;
             this.countDisp.Text = "0";
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(15, 321);
+            this.panel1.Location = new System.Drawing.Point(17, 401);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 30);
+            this.panel1.Size = new System.Drawing.Size(225, 38);
             this.panel1.TabIndex = 13;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -195,10 +195,10 @@ namespace cam_aforge1
             this.blue.BackColor = System.Drawing.Color.Blue;
             this.blue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.blue.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.blue.Location = new System.Drawing.Point(124, 235);
+            this.blue.Location = new System.Drawing.Point(140, 294);
             this.blue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.blue.Name = "blue";
-            this.blue.Size = new System.Drawing.Size(59, 39);
+            this.blue.Size = new System.Drawing.Size(66, 49);
             this.blue.TabIndex = 14;
             this.blue.Text = "Blue";
             this.blue.UseVisualStyleBackColor = false;
@@ -209,10 +209,10 @@ namespace cam_aforge1
             this.red.BackColor = System.Drawing.Color.Red;
             this.red.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.red.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.red.Location = new System.Drawing.Point(188, 235);
+            this.red.Location = new System.Drawing.Point(212, 294);
             this.red.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.red.Name = "red";
-            this.red.Size = new System.Drawing.Size(57, 41);
+            this.red.Size = new System.Drawing.Size(64, 51);
             this.red.TabIndex = 15;
             this.red.Text = "Red";
             this.red.UseVisualStyleBackColor = false;
@@ -220,10 +220,10 @@ namespace cam_aforge1
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(15, 366);
+            this.panel2.Location = new System.Drawing.Point(17, 458);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 30);
+            this.panel2.Size = new System.Drawing.Size(225, 38);
             this.panel2.TabIndex = 14;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -231,10 +231,10 @@ namespace cam_aforge1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(9, 411);
+            this.label1.Location = new System.Drawing.Point(10, 514);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 31);
+            this.label1.Size = new System.Drawing.Size(108, 37);
             this.label1.TabIndex = 16;
             this.label1.Text = "Timer:";
             // 
@@ -242,10 +242,10 @@ namespace cam_aforge1
             // 
             this.minDisp.AutoSize = true;
             this.minDisp.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minDisp.Location = new System.Drawing.Point(101, 411);
+            this.minDisp.Location = new System.Drawing.Point(114, 514);
             this.minDisp.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.minDisp.Name = "minDisp";
-            this.minDisp.Size = new System.Drawing.Size(29, 31);
+            this.minDisp.Size = new System.Drawing.Size(35, 37);
             this.minDisp.TabIndex = 17;
             this.minDisp.Text = "0";
             this.minDisp.Click += new System.EventHandler(this.minDisp_Click);
@@ -254,10 +254,10 @@ namespace cam_aforge1
             // 
             this.secDisp.AutoSize = true;
             this.secDisp.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.secDisp.Location = new System.Drawing.Point(154, 411);
+            this.secDisp.Location = new System.Drawing.Point(173, 514);
             this.secDisp.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.secDisp.Name = "secDisp";
-            this.secDisp.Size = new System.Drawing.Size(29, 31);
+            this.secDisp.Size = new System.Drawing.Size(35, 37);
             this.secDisp.TabIndex = 18;
             this.secDisp.Text = "0";
             this.secDisp.Click += new System.EventHandler(this.secDisp_Click);
@@ -266,19 +266,20 @@ namespace cam_aforge1
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(129, 411);
+            this.label5.Location = new System.Drawing.Point(145, 514);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(22, 31);
+            this.label5.Size = new System.Drawing.Size(26, 37);
             this.label5.TabIndex = 19;
             this.label5.Text = ":";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // start_time
             // 
-            this.start_time.Location = new System.Drawing.Point(12, 458);
+            this.start_time.Location = new System.Drawing.Point(14, 572);
+            this.start_time.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.start_time.Name = "start_time";
-            this.start_time.Size = new System.Drawing.Size(75, 23);
+            this.start_time.Size = new System.Drawing.Size(84, 29);
             this.start_time.TabIndex = 20;
             this.start_time.Text = "Start";
             this.start_time.UseVisualStyleBackColor = true;
@@ -286,9 +287,10 @@ namespace cam_aforge1
             // 
             // reset
             // 
-            this.reset.Location = new System.Drawing.Point(174, 458);
+            this.reset.Location = new System.Drawing.Point(196, 572);
+            this.reset.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.reset.Name = "reset";
-            this.reset.Size = new System.Drawing.Size(75, 23);
+            this.reset.Size = new System.Drawing.Size(84, 29);
             this.reset.TabIndex = 21;
             this.reset.Text = "Reset";
             this.reset.UseVisualStyleBackColor = true;
@@ -296,9 +298,10 @@ namespace cam_aforge1
             // 
             // stop_time
             // 
-            this.stop_time.Location = new System.Drawing.Point(93, 458);
+            this.stop_time.Location = new System.Drawing.Point(105, 572);
+            this.stop_time.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.stop_time.Name = "stop_time";
-            this.stop_time.Size = new System.Drawing.Size(75, 23);
+            this.stop_time.Size = new System.Drawing.Size(84, 29);
             this.stop_time.TabIndex = 22;
             this.stop_time.Text = "Stop";
             this.stop_time.UseVisualStyleBackColor = true;
@@ -306,9 +309,9 @@ namespace cam_aforge1
             // 
             // GUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 612);
+            this.ClientSize = new System.Drawing.Size(1350, 765);
             this.Controls.Add(this.stop_time);
             this.Controls.Add(this.reset);
             this.Controls.Add(this.start_time);
@@ -330,7 +333,7 @@ namespace cam_aforge1
             this.Controls.Add(this.vidSrcLabel);
             this.Controls.Add(this.vidSrc);
             this.Controls.Add(this.viewFinder);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "GUI";
             this.Text = "Orthoscope/Arthroscope Camera";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
