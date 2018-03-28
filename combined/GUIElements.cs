@@ -26,6 +26,8 @@ namespace cam_aforge1
         long scansizeincrement = 2;
         long scansizeincrement_2 = 2;
         int range = 15;
+        int targetRange = 50;
+        bool counterflag = false;
 
         int counter = 0;
         public int start_pixel_flag = 1;
@@ -36,7 +38,7 @@ namespace cam_aforge1
         {
             this.gui = _gui;
         }
-        
+
         //This function runs every frame
         public void Run(int r, int G, int b, Bitmap img, int begin_r, int begin_r_2, int begin_G, int begin_G_2, int begin_b, int begin_b_2)
         {
@@ -61,8 +63,8 @@ namespace cam_aforge1
                 {
                     if ((change_panel_color(img, 1) > (begin_r + range) || change_panel_color(img, 1) < (begin_r - range)) || (change_panel_color(img, 2) > (begin_G + range) || change_panel_color(img, 2) < (begin_G - range)) || (change_panel_color(img, 3) > (begin_b + range) || change_panel_color(img, 3) < (begin_b - range)))
                     {
-                        squareY1 = squareY1 + 2;
-                        squareX1 = squareX1 - 2;
+                        squareY1 = squareY1 + 3;
+                        squareX1 = squareX1 - 3;
                         sqr.x1 = squareX1;
                         sqr.y1 = squareY1;
                         //sqr.Draw(g);
@@ -81,7 +83,7 @@ namespace cam_aforge1
                     {
                         if ((change_panel_color(img, 1) > (begin_r + range) || change_panel_color(img, 1) < (begin_r - range)) || (change_panel_color(img, 2) > (begin_G + range) || change_panel_color(img, 2) < (begin_G - range)) || (change_panel_color(img, 3) > (begin_b + range) || change_panel_color(img, 3) < (begin_b - range)))
                         {
-                            squareY1 = squareY1 - 3;
+                            squareY1 = squareY1 - 5;
                             squareX1 = squareX1;
                             sqr.x1 = squareX1;
                             sqr.y1 = squareY1;
@@ -102,7 +104,7 @@ namespace cam_aforge1
                         if ((change_panel_color(img, 1) > (begin_r + range) || change_panel_color(img, 1) < (begin_r - range)) || (change_panel_color(img, 2) > (begin_G + range) || change_panel_color(img, 2) < (begin_G - range)) || (change_panel_color(img, 3) > (begin_b + range) || change_panel_color(img, 3) < (begin_b - range)))
                         {
                             squareY1 = squareY1;
-                            squareX1 = squareX1 + 3;
+                            squareX1 = squareX1 + 5;
                             sqr.x1 = squareX1;
                             sqr.y1 = squareY1;
                             //sqr.Draw(g);
@@ -120,7 +122,7 @@ namespace cam_aforge1
                     {
                         if ((change_panel_color(img, 1) > (begin_r + range) || change_panel_color(img, 1) < (begin_r - range)) || (change_panel_color(img, 2) > (begin_G + range) || change_panel_color(img, 2) < (begin_G - range)) || (change_panel_color(img, 3) > (begin_b + range) || change_panel_color(img, 3) < (begin_b - range)))
                         {
-                            squareY1 = squareY1 + 3;
+                            squareY1 = squareY1 + 5;
                             squareX1 = squareX1;
                             sqr.x1 = squareX1;
                             sqr.y1 = squareY1;
@@ -140,7 +142,7 @@ namespace cam_aforge1
                         if ((change_panel_color(img, 1) > (begin_r + range) || change_panel_color(img, 1) < (begin_r - range)) || (change_panel_color(img, 2) > (begin_G + range) || change_panel_color(img, 2) < (begin_G - range)) || (change_panel_color(img, 3) > (begin_b + range) || change_panel_color(img, 3) < (begin_b - range)))
                         {
                             squareY1 = squareY1;
-                            squareX1 = squareX1 - 3;
+                            squareX1 = squareX1 - 5;
                             sqr.x1 = squareX1;
                             sqr.y1 = squareY1;
                             //sqr.Draw(g);
@@ -161,8 +163,8 @@ namespace cam_aforge1
                 {
                     if ((change_panel_color_2(img, 1) > (begin_r_2 + range) || change_panel_color_2(img, 1) < (begin_r_2 - range)) || (change_panel_color_2(img, 2) > (begin_G_2 + range) || change_panel_color_2(img, 2) < (begin_G_2 - range)) || (change_panel_color_2(img, 3) > (begin_b_2 + range) || change_panel_color_2(img, 3) < (begin_b_2 - range)))
                     {
-                        squareY1_2 = squareY1_2 + 2;
-                        squareX1_2 = squareX1_2 - 2;
+                        squareY1_2 = squareY1_2 + 3;
+                        squareX1_2 = squareX1_2 - 3;
                         sqr_2.x1 = squareX1_2;
                         sqr_2.y1 = squareY1_2;
                         //sqr_2.Draw(g);
@@ -181,7 +183,7 @@ namespace cam_aforge1
                     {
                         if ((change_panel_color_2(img, 1) > (begin_r_2 + range) || change_panel_color_2(img, 1) < (begin_r_2 - range)) || (change_panel_color_2(img, 2) > (begin_G_2 + range) || change_panel_color_2(img, 2) < (begin_G_2 - range)) || (change_panel_color_2(img, 3) > (begin_b_2 + range) || change_panel_color_2(img, 3) < (begin_b_2 - range)))
                         {
-                            squareY1_2 = squareY1_2 - 3;
+                            squareY1_2 = squareY1_2 - 5;
                             squareX1_2 = squareX1_2;
                             sqr_2.x1 = squareX1_2;
                             sqr_2.y1 = squareY1_2;
@@ -202,7 +204,7 @@ namespace cam_aforge1
                         if ((change_panel_color_2(img, 1) > (begin_r_2 + range) || change_panel_color_2(img, 1) < (begin_r_2 - range)) || (change_panel_color_2(img, 2) > (begin_G_2 + range) || change_panel_color_2(img, 2) < (begin_G_2 - range)) || (change_panel_color_2(img, 3) > (begin_b_2 + range) || change_panel_color_2(img, 3) < (begin_b_2 - range)))
                         {
                             squareY1_2 = squareY1_2;
-                            squareX1_2 = squareX1_2 + 3;
+                            squareX1_2 = squareX1_2 + 5;
                             sqr_2.x1 = squareX1_2;
                             sqr_2.y1 = squareY1_2;
                             //sqr_2.Draw(g);
@@ -220,7 +222,7 @@ namespace cam_aforge1
                     {
                         if ((change_panel_color_2(img, 1) > (begin_r_2 + range) || change_panel_color_2(img, 1) < (begin_r_2 - range)) || (change_panel_color_2(img, 2) > (begin_G_2 + range) || change_panel_color_2(img, 2) < (begin_G_2 - range)) || (change_panel_color_2(img, 3) > (begin_b_2 + range) || change_panel_color_2(img, 3) < (begin_b_2 - range)))
                         {
-                            squareY1_2 = squareY1_2 + 3;
+                            squareY1_2 = squareY1_2 + 5;
                             squareX1_2 = squareX1_2;
                             sqr_2.x1 = squareX1_2;
                             sqr_2.y1 = squareY1_2;
@@ -240,7 +242,7 @@ namespace cam_aforge1
                         if ((change_panel_color_2(img, 1) > (begin_r_2 + range) || change_panel_color_2(img, 1) < (begin_r_2 - range)) || (change_panel_color_2(img, 2) > (begin_G_2 + range) || change_panel_color_2(img, 2) < (begin_G_2 - range)) || (change_panel_color_2(img, 3) > (begin_b_2 + range) || change_panel_color_2(img, 3) < (begin_b_2 - range)))
                         {
                             squareY1_2 = squareY1_2;
-                            squareX1_2 = squareX1_2 - 3;
+                            squareX1_2 = squareX1_2 - 5;
                             sqr_2.x1 = squareX1_2;
                             sqr_2.y1 = squareY1_2;
                             //sqr_2.Draw(g);
@@ -256,8 +258,18 @@ namespace cam_aforge1
             }
 
             //Console.WriteLine(change_panel_color(img, 1) + " " + change_panel_color(img, 2) + " " + change_panel_color(img, 3)+ " " + begin_r + " " + begin_G + " " + begin_b);
+             
 
-
+            if ((squareX1 < (squareX1_2 + targetRange) && squareX1 > (squareX1_2 - targetRange)) && (squareY1 < (squareY1_2 + targetRange) && squareY1 > (squareY1_2 - targetRange)) && scansizeincrement_2 < 10 && scansizeincrement < 10)
+            {
+                counter++;
+                squareX1 = 100;
+                squareY1 = 100;
+                scansizeincrement = 2;
+                squareX1_2 = 300;
+                squareY1_2 = 100;
+                scansizeincrement_2 = 2;
+            }
         }
         public int change_panel_color(Bitmap img, int sel)
         {
@@ -270,11 +282,11 @@ namespace cam_aforge1
             int G = 0;
             int b = 0;
 
-            Color pixelColor = img.GetPixel(X1+50, Y1+50);
+            Color pixelColor = img.GetPixel(X1 + 50, Y1 + 50);
             r += pixelColor.R;
             G += pixelColor.G;
             b += pixelColor.B;
-            
+
             if (sel == 1)
             {
                 return r;
@@ -327,6 +339,16 @@ namespace cam_aforge1
                 return 0;
             }
 
+        }
+
+        public void ResetSquareLocations()
+        {
+            squareX1 = 100;
+            squareY1 = 100;
+            scansizeincrement = 2;
+            squareX1_2 = 300;
+            squareY1_2 = 100;
+            scansizeincrement_2 = 2;
         }
 
         //Below is Sample Code on how to implement a button

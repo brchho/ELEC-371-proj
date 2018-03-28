@@ -265,6 +265,7 @@ namespace cam_aforge1
         {
             reset_time_flag = 1;
             stopwatch.Reset();
+            myCanvas.ResetSquareLocations();
         }
 
         private void secDisp_Click(object sender, EventArgs e)
